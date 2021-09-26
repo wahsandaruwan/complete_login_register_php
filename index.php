@@ -21,19 +21,19 @@
                 <input type="checkbox" name="re-check" id="re-check">
                 <label for="re-check">Remember Me</label>
             </div>
-            <button type="submit" name="submit">Login</button>
+            <button type="submit" name="login-btn">Login</button>
         </form>
 
         <!-- Register Form -->
-        <form action="" class="register">
+        <form action="./includes/register.inc.php" method="post" class="register">
             <h2>Register</h2>
             <input type="text" name="fname" placeholder="Enter Your First Name...">
             <input type="text" name="lname" placeholder="Enter Your Last Name...">
-            <input type="number" name="phone" placeholder="Enter Your Mobile...">
+            <input type="text" name="phone" placeholder="Enter Your Mobile...">
             <input type="email" name="email" placeholder="Enter Your Email...">
             <input type="password" name="pass" placeholder="Enter Your Password...">
             <input type="password" name="re-pass" placeholder="Enter Your Password Again..."> 
-            <button type="submit" name="submit">Register</button>
+            <button type="submit" name="register-btn">Register</button>
         </form>
     </div>
 </body>
