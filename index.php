@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register System</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="form">
+    <!-- Message -->
+    <!-- <p class="msg" name="msg">This is a sample</p> -->
+    <!-- Forms -->
+    <div class="forms">
         <!-- Login Form -->
         <form action="" class="login">
             <h2>Login</h2>
@@ -21,9 +25,10 @@
         </form>
 
         <!-- Register Form -->
-        <form action="" class="login">
+        <form action="" class="register">
             <h2>Register</h2>
-            <input type="text" name="name" placeholder="Enter Your Name...">
+            <input type="text" name="fname" placeholder="Enter Your First Name...">
+            <input type="text" name="lname" placeholder="Enter Your Last Name...">
             <input type="number" name="phone" placeholder="Enter Your Mobile...">
             <input type="email" name="email" placeholder="Enter Your Email...">
             <input type="password" name="pass" placeholder="Enter Your Password...">
