@@ -9,7 +9,32 @@
 </head>
 <body>
     <!-- Message -->
-    <!-- <p class="msg" name="msg">This is a sample</p> -->
+    <?php
+        // Register form related messages
+        if(isset($_GET["err"])){
+            if($_GET["err"] === "empty_inputs"){
+                echo "<p class='msg' style='background-color: #ee2222;'>All the input fields must be filled!</p>";
+            }
+            else if($_GET["err"] === "invalid_name"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Both names must be written in only letters!</p>";
+            }
+            else if($_GET["err"] === "invalid_email"){
+                echo "<p class='msg' style='background-color: #ee2222;'>A proper email must be entered!</p>";
+            }
+            else if($_GET["err"] === "invalid_mobile"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Mobile number must be 10 digit long & start with 0!</p>";
+            }
+            else if($_GET["err"] === "different_pass"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Both passwords must be matched!</p>";
+            }
+            else if($_GET["err"] === "available_emailormobile"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Email & mobile numbers must be brand new!</p>";
+            }
+            else{
+                echo "<p class='msg' style='background-color: #25aa25;'>Successfully registered!</p>";
+            }
+        }
+    ?>
     <!-- Forms -->
     <div class="forms">
         <!-- Login Form -->
