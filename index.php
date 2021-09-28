@@ -29,10 +29,10 @@
             <h2>Register</h2>
             <input type="text" name="fname" placeholder="Enter Your First Name...">
             <input type="text" name="lname" placeholder="Enter Your Last Name...">
-            <input type="text" name="phone" placeholder="Enter Your Mobile...">
             <input type="email" name="email" placeholder="Enter Your Email...">
+            <input type="text" name="mobile" placeholder="Enter Your Mobile...">
             <input type="password" name="pass" placeholder="Enter Your Password...">
-            <input type="password" name="re-pass" placeholder="Enter Your Password Again..."> 
+            <input type="password" name="re_pass" placeholder="Enter Your Password Again..."> 
             <button type="submit" name="register-btn">Register</button>
         </form>
     </div>
