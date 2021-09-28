@@ -10,8 +10,8 @@
 <body>
     <!-- Messages -->
     <?php
-        // Both forms related messages
         if(isset($_GET["err"])){
+            // Both forms related messages
             if($_GET["err"] === "empty_inputs"){
                 echo "<p class='msg' style='background-color: #ee2222;'>All the input fields must be filled!</p>";
             }
@@ -36,8 +36,18 @@
             else if($_GET["err"] === "failedstmt"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Failed to execute the query!</p>";
             }
-            else{
+
+            // Register form related message
+            else if($_GET["err"] === "noerrors"){
                 echo "<p class='msg' style='background-color: #25aa25;'>Successfully registered!</p>";
+            }
+
+            // Login form related messages
+            else if($_GET["err"] === "loginfailedemail"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Wrong email, please enter the correct email!</p>";
+            }
+            else if($_GET["err"] === "loginfailedpass"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Wrong password, please enter the correct password!</p>";
             }
         }
     ?>
