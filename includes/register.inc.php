@@ -43,4 +43,28 @@
         header("location:../index.php");
         exit();
     }
+
+    // Function for register a new user
+    function registerNewUser($conn, $fname, $lname, $email, $mobile, $pass){
+        // Password encryption
+        $passHashed = password_hash($pass, PASSWORD_DEFAULT);
+        // Query
+        $sql = "INSERT INTO users (fname, lname, email, mobile, password) VALUES (?, ?, ?, ?, ?)";
+        // Initialize prepares statement
+        $stmt = mysqli_stmt_init($conn);
+        // Bind the statement with the query and check errors
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("location: ../index.php?err=failedstmt");
+        }
+        else{
+            // Bind data with the statement
+            mysqli_stmt_bind_param($stmt, "sssis", $fname, $lname, $email, $mobile, $passHashed);
+            // Execute the statement
+            mysqli_stmt_execute($stmt);
+            // Close the statement
+            mysqli_stmt_close($stmt);
+            
+            header("location: ../index.php?err=noerrors");
+        }
+    }
 ?>
