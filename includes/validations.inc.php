@@ -1,10 +1,22 @@
 <?php
     // --Functions to validate inputs--
 
-    // Check if inputs are empty
-    function inputsEmpty($fname, $lname, $email, $mobile, $pass, $re_pass){
+    // Check if register inputs are empty
+    function inputsEmptyRegister($fname, $lname, $email, $mobile, $pass, $re_pass){
         $value;
         if(empty($fname) || empty($lname) || empty($email) || empty($mobile) || empty($pass) || empty($re_pass)){
+            $value = true;
+        }
+        else{
+            $value = false;
+        }
+        return $value;
+    }
+
+    // Check if login inputs are empty
+    function inputsEmptyLogin($email, $pass){
+        $value;
+        if(empty($email) || empty($pass)){
             $value = true;
         }
         else{
@@ -16,10 +28,10 @@
     // Check if names are valid
     function nameInvalid($fname, $lname){
         $value;
-        if(!preg_match("/^[a-zA-Z\d]+$/", $fname)){
+        if(!preg_match("/^[a-zA-Z]+$/", $fname)){
             $value = true;
         }
-        else if(!preg_match("/^[a-zA-Z\d]+$/", $lname)){
+        else if(!preg_match("/^[a-zA-Z]+$/", $lname)){
             $value = true;
         }
         else{
@@ -31,7 +43,7 @@
     // Check if email is invalid
     function emailInvalid($email){
         $value;
-        if(!preg_match("/^[a-zA-Z\d\._-]+@[a-zA-Z\d_-]+\.[a-zA-Z\d\.]{2,}+$/", $email)){
+        if(!preg_match("/^[a-zA-Z\d\._-]+@[a-zA-Z\d_-]+\.[a-zA-Z\d\.]{2,}$/", $email)){
             $value = true;
         }
         else{
@@ -44,6 +56,18 @@
     function mobileInvalid($mobile){
         $value;
         if(!preg_match("/^[0][\d]{9}$/", $mobile)){
+            $value = true;
+        }
+        else{
+            $value = false;
+        }
+        return $value;
+    }
+
+    // Check if password is invalid
+    function passwordInvalid($pass){
+        $value;
+        if(!preg_match("/^.{5,}$/", $pass)){
             $value = true;
         }
         else{
@@ -91,7 +115,7 @@
                 $value = true;
             }
         }
-        // Close the statement and return value
+        // Close the statement
         mysqli_stmt_close($stmt);
 
         return $value;

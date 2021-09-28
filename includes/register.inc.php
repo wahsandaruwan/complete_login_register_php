@@ -15,7 +15,7 @@
         $re_pass = $_POST["re_pass"];
 
         // Input validation
-        if(inputsEmpty($fname, $lname, $email, $mobile, $pass, $re_pass)){
+        if(inputsEmptyRegister($fname, $lname, $email, $mobile, $pass, $re_pass)){
             header("location:../index.php?err=empty_inputs");
             // exit();
         }
@@ -27,6 +27,9 @@
         }
         else if(mobileInvalid($mobile)){
             header("location:../index.php?err=invalid_mobile");
+        }
+        else if(passwordInvalid($pass)){
+            header("location:../index.php?err=invalid_password");
         }
         else if(passNotMatch($pass, $re_pass)){
             header("location:../index.php?err=different_pass");

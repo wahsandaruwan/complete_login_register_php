@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- Message -->
+    <!-- Messages -->
     <?php
-        // Register form related messages
+        // Both forms related messages
         if(isset($_GET["err"])){
             if($_GET["err"] === "empty_inputs"){
                 echo "<p class='msg' style='background-color: #ee2222;'>All the input fields must be filled!</p>";
@@ -24,11 +24,17 @@
             else if($_GET["err"] === "invalid_mobile"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Mobile number must be 10 digit long & start with 0!</p>";
             }
+            else if($_GET["err"] === "invalid_password"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Password must be at least 5 digit long!</p>";
+            }
             else if($_GET["err"] === "different_pass"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Both passwords must be matched!</p>";
             }
             else if($_GET["err"] === "available_emailormobile"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Email & mobile numbers must be brand new!</p>";
+            }
+            else if($_GET["err"] === "failedstmt"){
+                echo "<p class='msg' style='background-color: #ee2222;'>Failed to execute the query!</p>";
             }
             else{
                 echo "<p class='msg' style='background-color: #25aa25;'>Successfully registered!</p>";
@@ -38,9 +44,9 @@
     <!-- Forms -->
     <div class="forms">
         <!-- Login Form -->
-        <form action="" class="login">
+        <form action="./includes/login.inc.php" method="post" class="login">
             <h2>Login</h2>
-            <input type="email" name="email" placeholder="Enter Your Email...">
+            <input type="text" name="email" placeholder="Enter Your Email...">
             <input type="password" name="pass" placeholder="Enter Your Password...">
             <div class="rem">
                 <input type="checkbox" name="re-check" id="re-check">
