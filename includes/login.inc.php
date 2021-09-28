@@ -59,8 +59,10 @@
                 if($isPassOk){
                     // Setup session variables
                     session_start();
-                    $_SESSION["user_is"] = $row["id"];
                     $_SESSION["user_email"] = $row["email"];
+                    $_SESSION["user_fname"] = $row["fname"];
+                    $_SESSION["user_lname"] = $row["lname"];
+                    $_SESSION["user_mobile"] = $row["mobile"];
                     
                     header("location: ../profile.php");
                 }
