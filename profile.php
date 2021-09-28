@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION["user_email"])){
+        header("location: ./index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,7 @@
         <div class="data"><?php if(isset($_SESSION["user_email"])){ echo $_SESSION["user_fname"]." ".$_SESSION["user_lname"]; } ?></div>
         <div class="data"><?php if(isset($_SESSION["user_email"])){ echo $_SESSION["user_email"]; } ?></div>
         <div class="data"><?php if(isset($_SESSION["user_email"])){ echo $_SESSION["user_mobile"]; } ?></div>
-        <a href="">Logout</a>
+        <a href="./includes/logout.inc.php">Logout</a>
     </div>
 </body>
 </html>
