@@ -56,10 +56,10 @@
         <!-- Login Form -->
         <form action="./includes/login.inc.php" method="post" class="login">
             <h2>Login</h2>
-            <input type="text" name="email" placeholder="Enter Your Email...">
-            <input type="password" name="pass" placeholder="Enter Your Password...">
+            <input type="text" name="email" placeholder="Enter Your Email..." value="<?php if(isset($_COOKIE["emailcookie"])){ echo $_COOKIE["emailcookie"]; } ?>">
+            <input type="password" name="pass" placeholder="Enter Your Password..." value="<?php if(isset($_COOKIE["passwordcookie"])){ echo $_COOKIE["passwordcookie"]; } ?>">
             <div class="rem">
-                <input type="checkbox" name="re-check" id="re-check">
+                <input type="checkbox" name="re-check" id="re-check" <?php if(isset($_COOKIE["emailcookie"])){ ?> checked <?php } ?>>
                 <label for="re-check">Remember Me</label>
             </div>
             <button type="submit" name="login-btn">Login</button>

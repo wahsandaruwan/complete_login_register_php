@@ -9,6 +9,7 @@
         // Get form input data
         $email = $_POST["email"];
         $pass = $_POST["pass"];
+        $remember = $_POST["re-check"];
 
         // Input validation
         if(inputsEmptyLogin($email, $pass)){
@@ -22,7 +23,7 @@
         }
         else{
             // If all inputs are error free
-            loginUser($conn, $email, $pass);
+            loginUser($conn, $email, $pass, $remember);
         }
     }
     else{
@@ -31,7 +32,7 @@
     }
 
     // Function for login
-    function loginUser($conn, $email, $pass){
+    function loginUser($conn, $email, $pass, $remember){
         // Password decryption
         
         // Query
@@ -63,6 +64,22 @@
                     $_SESSION["user_fname"] = $row["fname"];
                     $_SESSION["user_lname"] = $row["lname"];
                     $_SESSION["user_mobile"] = $row["mobile"];
+
+                    // If remember me checked
+                    if(isset($remember)){
+                        // Create cookies for email and password
+                        setcookie("emailcookie", $email, time() + (3600 * 24 * 7), "/");
+                        setcookie("passwordcookie", $pass, time() + (3600 * 24 * 7), "/");
+                    }
+                    else{
+                        // Destroy cookies value
+                        if(isset($_COOKIE["emailcookie"])){
+                            setcookie("emailcookie", "", time() - (3600 * 24 * 7), "/");
+                        }
+                        if(isset($_COOKIE["passwordcookie"])){
+                            setcookie("passwordcookie", "", time() - (3600 * 24 * 7), "/");
+                        }
+                    }
                     
                     header("location: ../profile.php");
                 }
