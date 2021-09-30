@@ -25,7 +25,7 @@
                 echo "<p class='msg' style='background-color: #ee2222;'>Mobile number must be 10 digit long & start with 0!</p>";
             }
             else if($_GET["err"] === "invalid_password"){
-                echo "<p class='msg' style='background-color: #ee2222;'>Password must be at least 5 digit long!</p>";
+                echo "<p class='msg' style='background-color: #ee2222;'>Password must be at least 5 characters long!</p>";
             }
             else if($_GET["err"] === "different_pass"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Both passwords must be matched!</p>";
@@ -70,10 +70,10 @@
             <h2>Register</h2>
             <input type="text" name="fname" placeholder="Enter Your First Name...">
             <input type="text" name="lname" placeholder="Enter Your Last Name...">
-            <input type="email" name="email" placeholder="Enter Your Email...">
+            <input type="text" name="email" placeholder="Enter Your Email...">
             <input type="text" name="mobile" placeholder="Enter Your Mobile...">
             <input type="password" name="pass" placeholder="Enter Your Password...">
-            <input type="password" name="re_pass" placeholder="Enter Your Password Again..."> 
+            <input type="password" name="re_pass" placeholder="Enter Your Password Again...">
             <button type="submit" name="register-btn">Register</button>
         </form>
     </div>
