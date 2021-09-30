@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION["user_email"])){
+        header("location: ./profile.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register System</title>
     <link rel="stylesheet" href="./style.css">
-    <script>
-        // Navigate to next url of the history list
-        window.history.forward();
-    </script>
 </head>
 <body>
     <!-- Messages -->
@@ -35,7 +37,7 @@
                 echo "<p class='msg' style='background-color: #ee2222;'>Both passwords must be matched!</p>";
             }
             else if($_GET["err"] === "available_emailormobile"){
-                echo "<p class='msg' style='background-color: #ee2222;'>Email & mobile numbers must be brand new!</p>";
+                echo "<p class='msg' style='background-color: #ee2222;'>Email & mobile number must be brand new!</p>";
             }
             else if($_GET["err"] === "failedstmt"){
                 echo "<p class='msg' style='background-color: #ee2222;'>Failed to execute the query!</p>";
