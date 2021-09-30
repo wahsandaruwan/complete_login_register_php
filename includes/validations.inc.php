@@ -93,7 +93,7 @@
         $value;
         // Query
         $sql = "SELECT * FROM users WHERE email = ? OR mobile = ?;";
-        // Initialize prepares statement
+        // Initialize the prepared statement
         $stmt = mysqli_stmt_init($conn);
         // Bind the statement with the query and check errors
         if(!mysqli_stmt_prepare($stmt, $sql)){

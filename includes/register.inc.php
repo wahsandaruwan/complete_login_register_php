@@ -52,7 +52,7 @@
         // Password encryption
         $passHashed = password_hash($pass, PASSWORD_DEFAULT);
         // Query
-        $sql = "INSERT INTO users (fname, lname, email, mobile, password) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (fname, lname, email, mobile, password) VALUES (?, ?, ?, ?, ?);";
         // Initialize prepares statement
         $stmt = mysqli_stmt_init($conn);
         // Bind the statement with the query and check errors
@@ -66,7 +66,7 @@
             mysqli_stmt_execute($stmt);
             // Close the statement
             mysqli_stmt_close($stmt);
-            
+
             header("location: ../index.php?err=noerrors");
         }
     }

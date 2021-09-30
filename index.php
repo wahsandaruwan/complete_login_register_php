@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register System</title>
     <link rel="stylesheet" href="./style.css">
+    <script>
+        // Navigate to next url of the history list
+        window.history.forward();
+    </script>
 </head>
 <body>
     <!-- Messages -->

@@ -33,8 +33,6 @@
 
     // Function for login
     function loginUser($conn, $email, $pass, $remember){
-        // Password decryption
-        
         // Query
         $sql = "SELECT * FROM users WHERE email = ?;";
         // Initialize prepares statement
@@ -80,7 +78,7 @@
                             setcookie("passwordcookie", "", time() - (3600 * 24 * 7), "/");
                         }
                     }
-                    
+
                     header("location: ../profile.php");
                 }
                 else{
